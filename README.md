@@ -1,4 +1,4 @@
-# CS506-Project
+# CS506-Project Proposal 
 
 ## Project Description
 This project aims to investigate a correlation between the box office performance of horror and action/adventure films and the movements of the S&P 500 index. Specifically, we will analyze whether high box office revenues from horror movies are associated with downturns in the S&P 500 and conversely if successful action/adventure films correlate with positive market trends.
