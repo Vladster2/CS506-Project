@@ -1,15 +1,21 @@
 import csv
+import os
 
 
-genres_to_include = ["Horror", "Thriller"]
+output_dir = "data"  
+output_filename = "output.csv"  
 
+genres_to_include = ["Horror"]  # Modify as needed
 
-with open('data/movie_dataset.csv', 'r') as infile, open('output.csv', 'w', newline='') as outfile:
+with open('data/movie_dataset.csv', 'r') as infile, \
+     open(os.path.join(output_dir, output_filename), 'w', newline='') as outfile:
+
     reader = csv.DictReader(infile)
     writer = csv.DictWriter(outfile, fieldnames=reader.fieldnames)
     writer.writeheader()
     
     for row in reader:
         current_genres = row['genres'].split(' ')
-        if any(genre in genres_to_include for genre in current_genres):
+        if all(genre in current_genres for genre in genres_to_include):
             writer.writerow(row)
+
