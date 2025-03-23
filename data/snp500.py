@@ -2,7 +2,10 @@ import yfinance as yf
 import pandas as pd
 from datetime import datetime
 import os
-
+import matplotlib.pyplot as plt
+from datetime import datetime
+from matplotlib.ticker import FuncFormatter
+"""
 def download_sp500_data():
     print("Downloading ...")
     
@@ -25,3 +28,32 @@ def download_sp500_data():
 
 if __name__ == "__main__":
     download_sp500_data()
+"""
+
+def plot_movies():
+    # Load data from CSV file
+    movies = pd.read_csv("data/output.csv", parse_dates=["release_date"], dayfirst=True)
+
+    # Extract the year from the release date and add it as a new column 'Year'
+    movies["Year"] = movies["release_date"].dt.year  # Assuming 'release_date' column exists
+
+    # Group by 'Year' and sum the revenue for each year
+    aggregated_revenue = movies.groupby("Year")["revenue"].sum().reset_index()
+
+    # Sort by Year
+    aggregated_revenue = aggregated_revenue.sort_values("Year")
+
+    # Plot
+    plt.figure(figsize=(10, 5))
+    plt.plot(aggregated_revenue["Year"], aggregated_revenue["revenue"], marker='o', linestyle='-', color='b')
+    plt.xlabel("Year")
+    plt.ylabel("Revenue ($)")
+
+    # Format the y-axis labels to be whole numbers
+    plt.gca().yaxis.set_major_formatter(FuncFormatter(lambda x, _: f'{int(x):,}'))
+
+    plt.title("Aggregated Movie Revenue Over Time")
+    plt.grid()
+    plt.show()
+
+print(plot_movies())
