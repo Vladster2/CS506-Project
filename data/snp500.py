@@ -56,4 +56,14 @@ def plot_movies():
     plt.grid()
     plt.show()
 
-print(plot_movies())
+#print(plot_movies())
+
+def all_movies_except_horror():
+    file_path = "data/movie_dataset.csv"  
+    movies = pd.read_csv(file_path) 
+    filtered_movies = movies[~movies['genres'].str.contains("Horror", case=False, na=False)]
+    filtered_movies.to_csv("data/movies_no_horror.csv", index=False)
+
+all_movies_except_horror()
+
+
