@@ -8,9 +8,9 @@ df = pd.read_csv(
 )
 
 # Find the row with the oldest release year
-oldest_movie = df.loc[df["release_date"].idxmin()]
+youngest_movie = df.loc[df["release_date"].idxmax()]
 
 # Display full details
 print("Oldest horror movie in the dataset:")
 print("-----------------------------------")
-print(oldest_movie.to_string())
+print(youngest_movie.to_string())
