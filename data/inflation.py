@@ -11,7 +11,7 @@ cpi = pd.read_csv("data/CPI.csv")
 movies = movies.merge(cpi, left_on="release_year", right_on="Year", how="left")
 
 
-target_year = 2023
+target_year = 2013
 target_cpi = cpi.loc[cpi["Year"] == target_year, "CPI"].values[0]
 
 
