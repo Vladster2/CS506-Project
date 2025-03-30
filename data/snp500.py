@@ -64,6 +64,6 @@ def all_movies_except_horror():
     filtered_movies = movies[~movies['genres'].str.contains("Horror", case=False, na=False)]
     filtered_movies.to_csv("data/movies_no_horror.csv", index=False)
 
-all_movies_except_horror()
+#all_movies_except_horror()
 
 
