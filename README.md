@@ -13,9 +13,8 @@ Our project investigates the relationship between economic conditions and movie 
 ### Data Collection
 We will use a dataset that has box office information from each movie and within the dataset it will also contain information such as movie name, genre, and release date information. We will use a dataset from Kaggle for this information regarding movies: https://www.kaggle.com/datasets/karthiknamboori1/movie-datasets. We will also need information about the S&P 500 for this project. We can download a dataset from https://www.nasdaq.com/market-activity/index/spx/historical that contains this data.
 
-# Midterm Report
-
 ## Midterm Report Video
+
 https://www.youtube.com/watch?v=hgbGlpkEcKk
 
 ## Description of data processing done so far
