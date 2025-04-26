@@ -97,7 +97,15 @@ R-squared Thriller: 0.929324090010516
 R-squared Comedy: 0.9365027951550314
 R-squared Crime: 0.9823181695215141
 R-squared Drama: 0.8750054404047017
+R-squared Science-Fiction: 0.983449523590625
+R-squared Mystery: 0.9757709184000535
+R-squared War: 0.9847504770460153
+R-squared History: 0.98584741707319
+R-squared Documentary: 0.12299558668450161
+R-squared Animation: 0.9512137600390157
 ```
+
+Our R-squared values are high for almost every genre which shows that our KNN model fits pretty well between a movie's return on investment and the S&P 500 prices. The best fitting genre was adventure movies and the worst fitting genre was documentary movies.
 
 ## Preliminary Results
 
