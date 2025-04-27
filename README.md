@@ -10,6 +10,14 @@ Our project investigates the relationship between economic conditions and movie 
 2. Compare horror movie performance against other genres during economic downturns
 3. Identify patterns in horror movie production volume during different economic cycles
 
+### Getting Started
+
+```bash
+git clone https://github.com/yourusername/CS506-Project.git
+pip install -r requirements.txt
+python all.py
+```
+
 ### Data Collection
 We will use a dataset that has box office information from each movie and within the dataset it will also contain information such as movie name, genre, and release date information. We will use a dataset from Kaggle for this information regarding movies: https://www.kaggle.com/datasets/karthiknamboori1/movie-datasets. We will also need information about the S&P 500 for this project. We can download a dataset from https://www.nasdaq.com/market-activity/index/spx/historical that contains this data.
 
@@ -106,6 +114,56 @@ R-squared Animation: 0.9512137600390157
 ```
 
 Our R-squared values are high for almost every genre which shows that our KNN model fits pretty well between a movie's return on investment and the S&P 500 prices. The best fitting genre was adventure movies and the worst fitting genre was documentary movies.
+
+## Random Forest Model
+
+We also used a random forest model to try to predict if there is a recession based on features of a movie, and we graphed the feature importance of the model: 
+
+![Feature Importance](results/genre_importance_recession_prediction.png)
+
+Using the features we found, the model was able to predict if there was a recession with an accuracy of 73% which is pretty good. 
+
+```bash
+Model Accuracy: 0.73
+
+Classification Report:
+              precision    recall  f1-score   support
+
+       False       0.78      0.88      0.82        16
+        True       0.50      0.33      0.40         6
+
+    accuracy                           0.73        22
+   macro avg       0.64      0.60      0.61        22
+weighted avg       0.70      0.73      0.71        22
+```
+
+Genre Importance for recession prediction (a more complete version of the graph above):
+
+```
+Genre Importance for Recession Prediction:
+              Genre  Importance
+4             Drama    0.108687
+2            Comedy    0.087686
+0            Action    0.080717
+9          Thriller    0.079734
+1         Adventure    0.074930
+8   Science-Fiction    0.069351
+7           Romance    0.068236
+6            Horror    0.062037
+10            movie    0.055207
+5           Fantasy    0.038078
+3       Documentary    0.025025
+```
+
+### Conclusion from Random Forest Model
+
+Drama (Highest Importance - 0.109): Drama films show the strongest correlation with recession periods. This suggests that during economic downturns, there may be an increase in drama production or that the pattern of drama releases serves as a reliable indicator of economic conditions. People may be drawn to more serious, reflective content during challenging economic times.
+
+Horror films rank relatively low in importance (0.062), falling below genres like Science-Fiction and Romance. This lower ranking is particularly significant given our initial hypothesis about horror films:
+- The model suggests that horror movie production patterns are not strongly correlated with recession periods
+- This contradicts the common assumption that horror films perform better during economic downturns
+- The data indicates that horror may not be a "recession-proof" genre as sometimes claimed
+- When there is a recession, the production patterns of horror films don't show distinctive changes that would make them reliable predictors of economic conditions
 
 ## Preliminary Results
 
