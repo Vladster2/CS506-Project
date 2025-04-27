@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# 1. Load & parse
+# 1) Load & parse dates
 df = pd.read_csv('data/movie_dataset.csv')
 df['release_date'] = pd.to_datetime(
     df['release_date'].astype(str).str.strip(),
@@ -9,7 +9,7 @@ df['release_date'] = pd.to_datetime(
 )
 df['release_year'] = df['release_date'].dt.year
 
-# 2. Define your recession buckets & flag
+# 2) Flag recession vs non-recession
 periods = {
     '1958-1962': (1958, 1962),
     '1973-1976': (1973, 1976),
@@ -19,8 +19,7 @@ periods = {
     '2007-2010': (2007, 2010),
 }
 def assign_period(y):
-    if pd.isna(y):
-        return None
+    if pd.isna(y): return None
     for label, (start, end) in periods.items():
         if start <= int(y) <= end:
             return label
@@ -29,46 +28,41 @@ def assign_period(y):
 df['recession_period'] = df['release_year'].apply(assign_period)
 df['is_recession'] = df['recession_period'].notna()
 
-# 3. Count total movies per flag
-total = (
-    df
-    .groupby('is_recession')['id']
-    .nunique()
-    .reset_index(name='total_movies')
-)
-
-# 4. Explode genres so each row has one genre tag
+# 3) Explode genres
 df['genre_list'] = df['genres'].str.split()
 exploded = df.explode('genre_list').dropna(subset=['genre_list'])
 
-# 5. Count (unique) movies per genre × recession flag
-genre_counts = (
+# 4) For each (is_recession, genre) compute:
+#    - total revenue
+#    - movie count (unique IDs)
+#    - average revenue = total_rev / count
+agg = (
     exploded
-    .groupby(['is_recession', 'genre_list'])['id']
-    .nunique()
-    .reset_index(name='genre_movies')
+    .groupby(['is_recession', 'genre_list'])
+    .agg(
+        total_revenue = ('revenue', 'sum'),
+        movie_count   = ('id',      'nunique')
+    )
+    .reset_index()
 )
+agg['avg_revenue'] = agg['total_revenue'] / agg['movie_count']
 
-# 6. Merge totals & compute frequency
-merged = genre_counts.merge(total, on='is_recession')
-merged['frequency'] = merged['genre_movies'] / merged['total_movies']
-
-# 7. Pivot to get a table: index=genre, columns=[False,True] → freq
-freq_pivot = (
-    merged
-    .pivot(index='genre_list', columns='is_recession', values='frequency')
+# 5) Pivot so we have genres × [Non-Recession, Recession]
+avg_rev_pivot = (
+    agg
+    .pivot(index='genre_list', columns='is_recession', values='avg_revenue')
     .fillna(0)
     .rename(columns={False: 'Non-Recession', True: 'Recession'})
 )
 
-# 8. Plot
-ax = freq_pivot.plot(
-    kind='bar', 
-    figsize=(12, 8), 
+# 6) Plot average revenue per movie
+ax = avg_rev_pivot.plot(
+    kind='bar',
+    figsize=(12, 8),
     width=0.8
 )
-ax.set_ylabel('Proportion of Movies')
-ax.set_title('Genre Frequency: Recession vs Non-Recession Periods')
+ax.set_ylabel('Average Revenue per Movie')
+ax.set_title('Average Genre Revenue: Recession vs Non-Recession')
 ax.legend(title='')
 plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
