@@ -41,8 +41,8 @@ def is_recession(ts):
 # ------------------------------------------------------------------
 # 2.  LOAD FILES  (adjust filenames if different)
 # ------------------------------------------------------------------
-sp500_path  = DATA / "SP500_Historical_Data_20250323_170505.csv"              # adjust if file is named differently
-movies_path = DATA / "movie_dataset.csv"      # adjust if using movies.csv
+sp500_path  = "data/SP500_Historical_Data_20250323_170505.csv"              # adjust if file is named differently
+movies_path = "data/movie_dataset.csv"      # adjust if using movies.csv
 
 
 sp = pd.read_csv(sp500_path,  parse_dates=["Date"])

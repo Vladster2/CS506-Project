@@ -57,5 +57,5 @@ plt.legend(title="Release Year", bbox_to_anchor=(1.05, 1), loc='upper left')
 
 # Adjust layout and save
 plt.tight_layout()
-plt.savefig("inflation_comparison.png", dpi=300, bbox_inches='tight')
+plt.savefig("results/inflation_comparison.png", dpi=300, bbox_inches='tight')
 plt.show()
