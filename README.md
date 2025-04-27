@@ -1,6 +1,6 @@
-# CS506-Project Proposal 
+# CS506-Project 
 
-## Project Plan
+## Project 
 
 ### Project Description
 Our project investigates the relationship between economic conditions and movie performance, with a specific focus on horror films. We aim to test the hypothesis that during economic downturns, horror movies not only increase in production but also outperform other genres in terms of return on investment (ROI).
