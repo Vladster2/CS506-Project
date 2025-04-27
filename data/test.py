@@ -2,7 +2,7 @@ import pandas as pd
 
 # Load the CSV file and parse dates
 df = pd.read_csv(
-    "data/output.csv", 
+    "data/movie_dataset.csv", 
     parse_dates=["release_date"],  # Automatically parse dates
     dayfirst=True  # Important for DD-MM-YYYY format
 )
@@ -11,6 +11,6 @@ df = pd.read_csv(
 youngest_movie = df.loc[df["release_date"].idxmax()]
 
 # Display full details
-print("Oldest horror movie in the dataset:")
+print("Oldest movie in the dataset:")
 print("-----------------------------------")
 print(youngest_movie.to_string())
