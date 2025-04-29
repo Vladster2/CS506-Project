@@ -172,3 +172,7 @@ These findings from our linear regression model indicate patterns in movie produ
 From our inital KNN model we found that are R-squared values are relatively high which could suggest we have found a correlation between a movie's return on investment and the close prices of the S&P 500. Of the popular genres we tested in our KNN model we found that horror movies seem to have the lowest correlation which further suggests that our inital hypothesis might be incorrect. 
 
 These two models have starting to give us a clear pattern of our data which will allow us to investigate our data further and reach our final conclusions. 
+
+## Final Results
+
+After analyzing our data using linear regression, K-Nearest Neighbors (KNN), and a random forest classifier, we found that the relationship between economic conditions and movie performance is not as straightforward as we thought. From our results we discovered that horror movies do not outperform other genres during economic downturrns.
