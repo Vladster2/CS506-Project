@@ -21,31 +21,13 @@ python all.py
 ### Data Collection
 We will use a dataset that has box office information from each movie and within the dataset it will also contain information such as movie name, genre, and release date information. We will use a dataset from Kaggle for this information regarding movies: https://www.kaggle.com/datasets/karthiknamboori1/movie-datasets. We will also need information about the S&P 500 for this project. We downloaded a dataset from yahoo finance that contains this data.
 
-## Midterm Report Video
+## Final Report Video
 
-https://www.youtube.com/watch?v=hgbGlpkEcKk
+https://www.youtube.com/watch?v=VFb-UWqEG9U
 
 ## Description of data processing done
 
 We created seperate .csv files that just have horror movies from our first movie dataset .csv file. We have also created .csv files that contain a movie's budget and revenue adjusted for inflation. 
-
-## Linear Regression Model
-
-We perfomed linear regression to examine the relationship between economic conditions and movie performance across different genres.
-
-1. **Data Processing**: We preprocess movie data to calculate ROI (Return on Investment), while economic data is transformed into a recession severity score based on S&P 500 yearly returns and volatility.
-
-2. **Economic Hardship Metric**: We create a normalized recession severity score (0-1 scale) where higher values indicate worse economic conditions, derived from negative yearly returns and market volatility.
-
-3. **Genre Comparison**: We analyze multiple genres (Horror, Comedy, Drama, Action, Romance, Science-Fiction, Thriller, Fantasy) to compare their performance during different economic conditions.
-
-4. **Regression Analysis**: For each genre, we perform linear regression between economic hardship severity and movie ROI, calculating correlation coefficients and regression slopes to quantify the relationship.
-
-5. **Visualization**: We generate scatter plots with regression lines for each genre, allowing visual comparison of how different genres respond to economic downturns.
-
-### Scatter Plot with Regression Line for Horror Movies
-
-![Linear Regression Results](results/linear_regression.png)
 
 ### Data Contextualization  
 
@@ -78,6 +60,24 @@ Because each column sums to 100 %, we can compare the two percentages directly t
 * **Drama** remains the single biggest slice overall, but its share actually falls slightly in hardship months, showing that its apparent “spike” in raw counts is just a reflection of being the dominant genre year-round.
 
 This baseline check confirms that genre shifts we observe in recession visualizations are **real proportional changes**, not just artifacts of Drama’s normal ubiquity.
+
+## Linear Regression Model
+
+We perfomed linear regression to examine the relationship between economic conditions and movie performance across different genres.
+
+1. **Data Processing**: We preprocess movie data to calculate ROI (Return on Investment), while economic data is transformed into a recession severity score based on S&P 500 yearly returns and volatility.
+
+2. **Economic Hardship Metric**: We create a normalized recession severity score (0-1 scale) where higher values indicate worse economic conditions, derived from negative yearly returns and market volatility.
+
+3. **Genre Comparison**: We analyze multiple genres (Horror, Comedy, Drama, Action, Romance, Science-Fiction, Thriller, Fantasy) to compare their performance during different economic conditions.
+
+4. **Regression Analysis**: For each genre, we perform linear regression between economic hardship severity and movie ROI, calculating correlation coefficients and regression slopes to quantify the relationship.
+
+5. **Visualization**: We generate scatter plots with regression lines for each genre, allowing visual comparison of how different genres respond to economic downturns.
+
+### Scatter Plot with Regression Line for Horror Movies
+
+![Linear Regression Results](results/linear_regression.png)
 
 ### Regression Results Table
 
