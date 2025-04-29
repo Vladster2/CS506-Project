@@ -19,13 +19,13 @@ python all.py
 ```
 
 ### Data Collection
-We will use a dataset that has box office information from each movie and within the dataset it will also contain information such as movie name, genre, and release date information. We will use a dataset from Kaggle for this information regarding movies: https://www.kaggle.com/datasets/karthiknamboori1/movie-datasets. We will also need information about the S&P 500 for this project. We can download a dataset from https://www.nasdaq.com/market-activity/index/spx/historical that contains this data.
+We will use a dataset that has box office information from each movie and within the dataset it will also contain information such as movie name, genre, and release date information. We will use a dataset from Kaggle for this information regarding movies: https://www.kaggle.com/datasets/karthiknamboori1/movie-datasets. We will also need information about the S&P 500 for this project. We used the Yahoo Fianance python
 
 ## Midterm Report Video
 
 https://www.youtube.com/watch?v=hgbGlpkEcKk
 
-## Description of data processing done so far
+## Description of data processing 
 
 We created seperate .csv files that just have horror movies from our first movie dataset .csv file. We have also created .csv files that contain a movie's budget and revenue adjusted for inflation. 
 
@@ -175,4 +175,4 @@ These two models have starting to give us a clear pattern of our data which will
 
 ## Final Results
 
-After analyzing our data using linear regression, K-Nearest Neighbors (KNN), and a random forest classifier, we found that the relationship between economic conditions and movie performance is not as straightforward as we thought. From our results we discovered that horror movies do not outperform other genres during economic downturrns.
+After analyzing our data using linear regression, K-Nearest Neighbors (KNN), and a random forest classifier, we found that the relationship between economic conditions and movie performance is not as straightforward as we thought. From our results we discovered that horror movies do not outperform other genres during economic downturrns. We found generally that romance, drama and fantasy movies were the most recession resist movies. We found that the drama genre especially was the most recession correlated genre overall from all the models we used to evaluate the data which could imply that drama movies could be an indicator the performance of the economy. It's possible if we could have used decisions trees or neural networks we could have made some additional conclusions regarding our data as well. While there is a moderate correlation between market performance and movie revenue, the relationship varies significantly by genre, with Adventure films showing the strongest connection. 
