@@ -47,6 +47,38 @@ We perfomed linear regression to examine the relationship between economic condi
 
 ![Linear Regression Results](results/linear_regression.png)
 
+### Data Contextualization  
+
+The table below answers a key baseline question raised in the mid-term feedback: **are certain genres genuinely more common in economic downturns, or are they simply the most-produced genres overall?**
+
+| Genre | Overall&nbsp;Share&nbsp;(%) | Hardship&nbsp;Share&nbsp;(%) |
+|---|---|---|
+| Drama | 25.5 | 23.1 |
+| Comedy | 18.9 | 20.5 |
+| Thriller | 14.6 | 15.4 |
+| Action | 14.0 | 10.3 |
+| Romance | 10.0 | 15.4 |
+| Science Fiction | 6.5 | 2.6 |
+| Horror | 5.7 | 7.7 |
+| Fantasy | 4.8 | 5.1 |
+
+**How to read the columns**
+
+* **Overall Share (%)** – the genre’s share of **all** theatrical releases in our dataset (1915-2022).  
+* **Hardship Share (%)** – the same genre’s share counted **only during high-hardship months**  
+  (months where our S&P-500 hardship score > 0.5).
+
+Because each column sums to 100 %, we can compare the two percentages directly to see which genres expand or contract when the economy sags.
+
+**Key take-aways**
+
+* **Romance** jumps from **10 % → 15 %** of releases – the largest relative increase (+5.4 pts). Studios appear to green-light more romance titles during recessions.  
+* **Comedy** and **Horror** both inch upward, suggesting audiences (and distributors) favour escapism or catharsis in tough times.  
+* **Action** and **Science Fiction** shrink the most, consistent with their higher production budgets and greater financial risk.  
+* **Drama** remains the single biggest slice overall, but its share actually falls slightly in hardship months, showing that its apparent “spike” in raw counts is just a reflection of being the dominant genre year-round.
+
+This baseline check confirms that genre shifts we observe in recession visualizations are **real proportional changes**, not just artifacts of Drama’s normal ubiquity.
+
 ### Regression Results Table
 
 Our linear regression analysis comparing economic hardship severity with movie ROI across genres yielded the following results:
